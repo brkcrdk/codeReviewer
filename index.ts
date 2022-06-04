@@ -1,21 +1,10 @@
-import { fetcher } from 'utils';
+import { fetcher, shuffeledList, promptLoop } from 'utils';
 import { IMember } from './types';
-import promptLoop from './promptLoop';
 
 // NOTE: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak
 // listeyi geçen haftadan farklı yapmayı deneyebiliiriz
 
-/**
- * Seçeceğimiz üyelerin clickup usernamelerini alıyoruz
- */
-const members = [
-  'Burak Çardak',
-  'Aydoğan Sarı',
-  'Hakan Demiral',
-  'Yasin Kamış',
-  'Erhan Akyel',
-  'Baran Dasdemir'
-];
+const { shuffeledMembers, shuffleText } = shuffeledList();
 
 // fetcher({
 //   url: 'https://api.clickup.com/api/v2/team'
@@ -25,21 +14,13 @@ const members = [
 //   );
 // });
 
-const shuffle = () => {
-  return [...members].sort(() => 0.5 - Math.random());
-};
-
-const test = shuffle();
-
-const conditionText = `Liste bu: ${JSON.stringify(test, null, 4)} \n
+const conditionText = `Liste bu: ${shuffleText}
 Eğer listeyi beğenmezsen listeyi yenilemek için rs yaz. Eğer listeyi beğendiysen E yaz ve tasklar oluşsun :)`;
-
-// console.log(conditionText);
 
 async function run() {
   for await (const answer of promptLoop(conditionText)) {
     if (answer === 'E') {
-      console.log('proceed with this list', test);
+      console.log('proceed with this list', shuffeledMembers);
 
       break;
     }
