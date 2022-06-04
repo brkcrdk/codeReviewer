@@ -7,7 +7,7 @@ interface IFetcher {
   url: string;
 }
 
-const fetcher = ({ url }: IFetcher) => {
+const fetcher = async ({ url }: IFetcher) => {
   return fetch(url, {
     headers: {
       Authorization: String(process.env.API_TOKEN),

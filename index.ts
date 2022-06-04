@@ -1,5 +1,5 @@
+import { fetcher } from 'utils';
 import { IMember } from './types';
-import fetcher from './fetcher';
 import promptLoop from './promptLoop';
 
 // NOTE: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak
