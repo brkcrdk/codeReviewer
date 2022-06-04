@@ -3,14 +3,6 @@ import { fetcher, shuffeledList, promptLoop, memberData } from 'utils';
 // NOTE: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak
 // listeyi geçen haftadan farklı yapmayı deneyebiliiriz
 
-// fetcher({
-//   url: 'https://api.clickup.com/api/v2/team'
-// }).then((resp) => {
-//   return resp.teams[0].members.filter((member: IMember) =>
-//     members.includes(member.user.username)
-//   );
-// });
-
 const { shuffeledMembers, shuffleText } = shuffeledList();
 
 const conditionText = `Liste bu: ${shuffleText}
