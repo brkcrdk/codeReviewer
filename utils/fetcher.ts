@@ -8,14 +8,14 @@ interface IFetcher {
 }
 
 const fetcher = async ({ url }: IFetcher) => {
-  return fetch(url, {
+  const request = await fetch(`https://api.clickup.com/api/v2${url}`, {
     headers: {
       Authorization: String(process.env.API_TOKEN),
       'Content-Type': 'application / json'
     }
-  })
-    .then((res) => res.json())
-    .catch((err) => console.log(err));
+  });
+  const response = await request.json();
+  return response;
 };
 
 export default fetcher;
