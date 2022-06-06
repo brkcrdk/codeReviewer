@@ -1,17 +1,17 @@
 import { fetcher } from 'utils';
 
 interface CreateTaskProps {
-  listId: number;
+  listId: string;
   taskName: string;
   assignees: number[];
-  notify_all?: true;
+  notify_all?: boolean;
 }
 
 const createTask = async ({
   listId,
   taskName,
   assignees,
-  notify_all
+  notify_all = true
 }: CreateTaskProps) => {
   const taskRequest = await fetcher({
     url: `/list/${listId}/task`,
