@@ -1,3 +1,18 @@
+### codeReviewer Nedir ve Ne yapar?
+
+<b>Nedir:</b> codeReviewer benim code review sürecinde clickupda manual olarak oluşturduğum formatı, kod yardımıyla otomatik olarak oluşturmama yardımcı olur.
+
+<b>Ne yapar: </b> 
+
+- Virgül ile ayırdığım kişi isimlerini alır ve onları karışık bir liste haline getirir.
+- Bu listedeki kişileri code reviewda bir haftalığına çalışmak üzere eşleştirir.
+- Prompt yardımıyla, oluşturulmuş listeyi onaya sunar. Eğer onay almazsa tekrardan bir liste oluşturur. Bu süreç onay alınana kadar devam eder.
+- Onay alındıktan sonra verilen dosya altında istenilen formata göre liste oluşturur.
+- Bu listenin içinde eşleştirilmiş olan kişilere tasklar oluşturur.
+- Listenin açıklama kısımlarına code review süreci hakkında açıklamalar ekler.
+- Listedeki kişilere bildirim gönderir.
+
+
 ##### Yapılacak İşler
  
 * [x] <s>Takım listesini env dosyasından al</s>
@@ -10,4 +25,5 @@
 * [x] O listeye oluşturulan task listesine göre taskları oluştur.
 * [x] O taska kişileri assign et.
 * [ ] GELİŞTİRME: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak listeyi geçen haftadan farklı yapmayı deneyebiliiriz
+* [ ] GELİŞTİRME: Readme bölümünün, ingilizce olarak güncellenmeli. 
 
