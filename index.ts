@@ -1,4 +1,5 @@
 import { fetcher, shuffeledList, promptLoop, memberData } from 'utils';
+import { IList } from 'types';
 
 // NOTE: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak
 // listeyi geçen haftadan farklı yapmayı deneyebiliiriz
@@ -13,10 +14,23 @@ async function run() {
     if (answer === 'E') {
       console.log('proceed with this list', shuffeledMembers);
 
-      console.log('fetching teamMembers started');
-      const teamList = await memberData();
-      console.log(teamList);
-      console.log('fetching teamMembers finished');
+      const taskRequest: Promise<IList> = await fetcher({
+        url: '/folder/32051017/list',
+        requestOptions: {
+          method: 'POST',
+          body: JSON.stringify({
+            name: 'New List Name2',
+            content: 'New List Content'
+          })
+        }
+      });
+
+      console.log(taskRequest);
+
+      // console.log('fetching teamMembers started');
+      // const teamList = await memberData();
+      // console.log(teamList);
+      // console.log('fetching teamMembers finished');
 
       break;
     }
