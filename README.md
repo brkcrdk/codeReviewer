@@ -1,17 +1,16 @@
-### codeReviewer Nedir ve Ne yapar?
+### What is codeReview and what it does?
 
-<b>Nedir:</b> codeReviewer benim code review sürecinde clickupda manual olarak oluşturduğum formatı, kod yardımıyla otomatik olarak oluşturmama yardımcı olur.
+<b>What is codeReivewer:</b> codeReviewer is a helper tool that helps me to create code review tasks inside of ClickUp automatically i used to make it manually before.
 
-<b>Ne yapar: </b> 
+<b>What it does: </b> 
 
-- Virgül ile ayırdığım kişi isimlerini alır ve onları karışık bir liste haline getirir.
-- Bu listedeki kişileri code reviewda bir haftalığına çalışmak üzere eşleştirir.
-- Prompt yardımıyla, oluşturulmuş listeyi onaya sunar. Eğer onay almazsa tekrardan bir liste oluşturur. Bu süreç onay alınana kadar devam eder.
-- Onay alındıktan sonra verilen dosya altında istenilen formata göre liste oluşturur.
-- Bu listenin içinde eşleştirilmiş olan kişilere tasklar oluşturur.
-- Listenin açıklama kısımlarına code review süreci hakkında açıklamalar ekler.
-- Listedeki kişilere bildirim gönderir.
-
+- Takes comma seperated names and creates a shuffled list.
+- Matches these persons to be used for code review process.
+- With help of prompt it asks for approval of the list. If list not get approved it asks again until list gets approvel. After that it continues the process. 
+- After getting the approvel, it creates the list under the given ClickUp folder.
+- Creates task for matched persons inside newly created list.
+- Adds description about code review process under tasks.
+- Sends notifications to the matched people after creating tasks.
 
 ##### Yapılacak İşler
  
