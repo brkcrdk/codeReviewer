@@ -25,5 +25,6 @@
 * [x] O listeye oluşturulan task listesine göre taskları oluştur.
 * [x] O taska kişileri assign et.
 * [ ] GELİŞTİRME: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak listeyi geçen haftadan farklı yapmayı deneyebiliiriz
-* [ ] GELİŞTİRME: Readme bölümünün, ingilizce olarak güncellenmeli. 
+* [ ] GELİŞTİRME: Readme bölümünün, ingilizce olarak güncellenmeli.
+* [ ] GELİŞTİRME: Testlerin yazılması.
 
