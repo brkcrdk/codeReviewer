@@ -1,4 +1,4 @@
-#### Yapılacak İşler
+##### Yapılacak İşler
  
 * [x] <s>Takım listesini env dosyasından al</s>
 * [x] <s>Eğer oluşturulan listeye göre devam edilmek istenirse kişi bilgilerini apiden çek. Bu şekilde backende sürekli istek atılmaz.</s>
