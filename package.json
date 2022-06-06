@@ -4,7 +4,7 @@
   "description": "Bu script ile ekipteki kişilerin adlarını random bir şekilde eşleştireceğim ve onlara clickup üzerinden task atayacağım.",
   "main": "index.ts",
   "scripts": {
-    "start": "nodemon -r tsconfig-paths/register createTasks.ts"
+    "start": "nodemon -r tsconfig-paths/register index.ts"
   },
   "author": "Burak Çardak",
   "license": "ISC",
