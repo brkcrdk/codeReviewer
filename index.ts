@@ -10,7 +10,7 @@ Eğer listeyi beğenmezsen listeyi yenilemek için rs yaz. Eğer listeyi beğend
 async function run() {
   for await (const answer of promptLoop(conditionText)) {
     if (answer === 'E') {
-      console.log('Liste oluşturulmayamaya başlandı');
+      console.log('Liste oluşturulmaya başlandı');
       const listName = listNameBuilder();
       const { id: listId } = await createList({ listName });
       console.log(`liste ${listName} adıyla oluşturuldu`);
