@@ -1,5 +1,5 @@
 import { shuffeledList, promptLoop, listNameBuilder } from 'utils';
-import { memberData, createList } from 'api';
+import { memberData, createList, createTask } from 'api';
 
 const { shuffeledMembers, shuffleText } = shuffeledList();
 
@@ -10,43 +10,45 @@ Eğer listeyi beğenmezsen listeyi yenilemek için rs yaz. Eğer listeyi beğend
 async function run() {
   for await (const answer of promptLoop(conditionText)) {
     if (answer === 'E') {
-      // console.log('Liste oluşturulmayamaya başlandı');
-      // const listName = listNameBuilder();
-      // const { id: listId } = await createList({ listName });
-      // console.log(`liste ${listName} adıyla oluşturuldu`);
+      console.log('Liste oluşturulmayamaya başlandı');
+      const listName = listNameBuilder();
+      const { id: listId } = await createList({ listName });
+      console.log(`liste ${listName} adıyla oluşturuldu`);
 
       console.log('Takım üyelerinin bilgileri toplanıyor.');
       const teamList = await memberData();
       console.log('Takım üyelerinin bilgileri toplandı.');
 
       console.log('Tasklar oluşturulmaya başlandı.');
-      shuffeledMembers.forEach((username, index) => {
-        const currentPerson = teamList.find(
-          (info) => info.username === username
-        );
-        let nextPerson;
-        if (shuffeledMembers[index + 1]) {
-          nextPerson = teamList.find(
-            (info) => info.username === shuffeledMembers[index + 1]
-          );
+
+      for (let i = 0; i < shuffeledMembers.length; i++) {
+        const currentPerson = shuffeledMembers[i];
+        let nextPerson: string;
+        if (shuffeledMembers[i + 1]) {
+          nextPerson = shuffeledMembers[i + 1];
         } else {
-          nextPerson = teamList.find(
-            (info) => info.username === shuffeledMembers[0]
-          );
+          nextPerson = shuffeledMembers[0];
         }
 
-        console.log(
-          `${currentPerson?.username} -> ${nextPerson?.username} ikilisi için task oluşturulmaya başlandı.`
+        const currentMember = teamList.find(
+          (member) => member.username === currentPerson
         );
-        // if (member) {
-        //   if (shuffeledMembers[index + 1]) {
-        //     console.log('task atacaka')
-        //     // shuffleText += `${member} -> ${shuffeledMembers[index + 1]}\n`;
-        //   } else {
-        //     // shuffleText += `${member} -> ${shuffeledMembers[0]}`;
-        //   }
-        // }
-      });
+        const nextMember = teamList.find(
+          (member) => member.username === nextPerson
+        );
+
+        if (currentMember && nextMember) {
+          await createTask({
+            listId,
+            taskName: `${currentPerson} -> ${nextPerson}`,
+            assignees: [currentMember?.id, nextMember?.id]
+          });
+          console.log(
+            `${currentPerson} -> ${nextPerson} ikilisi için task oluşturuldu.`
+          );
+        }
+      }
+
       console.log('Tasklar başarıyla oluşturuldu.');
 
       break;
