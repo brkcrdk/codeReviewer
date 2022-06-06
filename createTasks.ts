@@ -1,4 +1,4 @@
-import { shuffeledList, promptLoop } from 'utils';
+import { shuffeledList, promptLoop, listNameBuilder } from 'utils';
 import { memberData, createList } from 'api';
 
 const { shuffeledMembers, shuffleText } = shuffeledList();
@@ -9,11 +9,16 @@ Eğer listeyi beğenmezsen listeyi yenilemek için rs yaz. Eğer listeyi beğend
 async function run() {
   for await (const answer of promptLoop(conditionText)) {
     if (answer === 'E') {
-      console.log('proceed with this list', shuffeledMembers);
+      // const startingDay = Date.now();
+      // const endDay = new Date(startingDay + 4 * 24 * 60 * 60 * 1000);
+      // console.log({ startingDay: new Date(startingDay), endDay });
 
-      const taskRequest = await createList();
+      // console.log('proceed with this list', shuffeledMembers);
+      const listName = listNameBuilder();
 
-      console.log(taskRequest);
+      const taskRequest = await createList({ listName });
+
+      // console.log(taskRequest);
 
       // console.log('fetching teamMembers started');
       // const teamList = await memberData();
