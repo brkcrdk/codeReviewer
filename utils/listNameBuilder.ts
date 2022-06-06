@@ -1,7 +1,9 @@
 /**
- * Task listesi için isimlendirme şu şekilde olacak.
- * ÖRN: 06.06 - 10.06 2022 Code review listesi
- * @returns
+ * Listede kullanılması için seçtiğim formatta liste adı oluşturuyorum.
+ * Scriptin çalıştığı tarih ve ondan sonraki 4 gün aralığı için
+ * örnekte olduğu formatta bir liste adı oluşturacak.
+ *
+ * ÖRN: 06.06 - 10.06.2022 Code review listesi
  */
 const listNameBuilder = () => {
   const startingDate = new Date();
