@@ -1,9 +1,5 @@
+import { fetcher, memberList } from 'utils';
 import { IMember } from 'types';
-import fetcher from './fetcher';
-
-export const memberList = process.env.MEMBERS?.split(',').map(
-  (member: string) => member.trim()
-);
 
 const memberData = async () => {
   const { teams } = await fetcher({ url: '/team' });

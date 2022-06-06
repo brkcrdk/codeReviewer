@@ -1,4 +1,4 @@
-import { memberList } from './memberData';
+import memberList from './memberList';
 
 const shuffledList = (): {
   shuffeledMembers: string[];

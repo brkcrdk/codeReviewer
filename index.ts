@@ -1,4 +1,5 @@
-import { fetcher, shuffeledList, promptLoop, memberData } from 'utils';
+import { fetcher, shuffeledList, promptLoop } from 'utils';
+import { memberData } from 'api';
 import { IList } from 'types';
 
 // NOTE: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak
