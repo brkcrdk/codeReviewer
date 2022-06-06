@@ -9,12 +9,10 @@ Eğer listeyi beğenmezsen listeyi yenilemek için rs yaz. Eğer listeyi beğend
 async function run() {
   for await (const answer of promptLoop(conditionText)) {
     if (answer === 'E') {
-      // console.log('proceed with this list', shuffeledMembers);
+      console.log('list oluşturmaya başlandı');
       const listName = listNameBuilder();
-
-      const taskRequest = await createList({ listName });
-
-      // console.log(taskRequest);
+      const { id: listId } = await createList({ listName });
+      console.log(`liste ${listName} adıyla oluşturuldu`);
 
       // console.log('fetching teamMembers started');
       // const teamList = await memberData();
