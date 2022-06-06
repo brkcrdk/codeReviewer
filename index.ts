@@ -2,9 +2,6 @@ import { fetcher, shuffeledList, promptLoop } from 'utils';
 import { memberData } from 'api';
 import { IList } from 'types';
 
-// NOTE: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak
-// listeyi geçen haftadan farklı yapmayı deneyebiliiriz
-
 const { shuffeledMembers, shuffleText } = shuffeledList();
 
 const conditionText = `Liste bu: ${shuffleText}
@@ -40,24 +37,3 @@ async function run() {
 }
 
 run();
-
-// const getTeams = async () => {
-//   const response = await fetch('https://api.clickup.com/api/v2/team', {
-//     headers: {
-//       Authorization: String(process.env.API_TOKEN),
-//       'Content-Type': 'application / json'
-//     }
-//   });
-//   const result = await response.json();
-//   return result;
-// };
-
-// getTeams()
-//   .then((res) =>
-//     console.log(
-//       res.teams[0].members.find(
-//         (val: IMember) => val.user.username === 'Burak Çardak'
-//       )
-//     )
-//   )
-//   .catch((err) => console.log(err));
