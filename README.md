@@ -7,7 +7,7 @@
 * [x] <s>Listeye verilecek isimde görüntülenecek tarih aralığı formatını oluştur. Beklenen format şu şekilde: `04.06 - 09.06.2022 Code Review Listesi`</s>
 * [x] <s>Listenin açıklama kısmını ekle.</s>
 * [x] <s>Eklenince, tarih aralığına göre liste adını oluştur.</s>
-* [ ] O listeye oluşturulan task listesine göre taskları oluştur.
-* [ ] O taska kişileri assign et.
+* [x] O listeye oluşturulan task listesine göre taskları oluştur.
+* [x] O taska kişileri assign et.
 * [ ] GELİŞTİRME: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak listeyi geçen haftadan farklı yapmayı deneyebiliiriz
 
