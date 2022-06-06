@@ -16,3 +16,17 @@ export interface IMember {
   user: IUser;
   invited_by?: IUser;
 }
+
+export interface IList {
+  id: string;
+  name: string;
+  deleted: boolean;
+  orderindex: number;
+  content: string;
+  folder: {
+    id: string;
+    name: string;
+    hidden: boolean;
+    access: boolean;
+  };
+}
