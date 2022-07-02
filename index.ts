@@ -60,12 +60,18 @@ import { memberData, createList, createTask, latestTaskList } from 'api';
 
 // run();
 
+/**
+ * İstediğimiz sonucu verene kadar çalışacak bir recursive function
+ * Akış şöyle olmalı:
+ * - Bu function içerisinde son listeyi al ve oluşturduğun yeni liste ile karşılaştır
+ * - Eğer karşılaştırdığın listede çakışma varsa yeniden liste oluştur ve kendini çağır
+ * - Eğer çakışma yoksa, o liste ile taskları oluştur ve functiondan çık.
+ */
 const countDown = async function f(list: string[]) {
   console.log(list);
 
   const reqTest = await latestTaskList();
 
-  // const nextNumber = fromNumber - 1;
   const { matchList } = shuffeledList();
   if (!reqTest.includes('Burak Çardak -> Erhan Akyel')) {
     f(matchList);
@@ -75,7 +81,6 @@ const countDown = async function f(list: string[]) {
   }
 };
 
-// const newYearCountDown = countDown;
 const { matchList } = shuffeledList();
 countDown(matchList);
 
