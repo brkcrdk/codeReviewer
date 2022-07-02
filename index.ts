@@ -31,8 +31,6 @@ import { memberData, createList, createTask, latestTaskList } from 'api';
 //           nextPerson = shuffeledMembers[0];
 //         }
 
-//         console.log({ nextPerson, currentPerson });
-
 //         // const currentMember = teamList.find(
 //         //   (member) => member.username === currentPerson
 //         // );
@@ -62,8 +60,37 @@ import { memberData, createList, createTask, latestTaskList } from 'api';
 
 // run();
 
-async function test() {
-  const reqTest = await latestTaskList();
-}
+const countDown = async function f(list: string[]) {
+  console.log(list);
 
-test();
+  const reqTest = await latestTaskList();
+
+  // const nextNumber = fromNumber - 1;
+  const { matchList } = shuffeledList();
+  if (!reqTest.includes('Burak Çardak -> Erhan Akyel')) {
+    f(matchList);
+  } else {
+    console.log({ matchList, reqTest });
+    return console.log('aranan bulundu');
+  }
+};
+
+// const newYearCountDown = countDown;
+const { matchList } = shuffeledList();
+countDown(matchList);
+
+// async function test() {
+//   const testString = '';
+
+//   if (testString === '3') {
+//     return console.log('tuttu');
+//   } else {
+//     test();
+//   }
+//   // const reqTest = await latestTaskList();
+//   // console.log({ reqTest });
+// }
+
+// // const { matchList } = shuffeledList();
+// // console.log({ matchList });
+// test();
