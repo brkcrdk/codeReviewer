@@ -30,3 +30,20 @@ export interface IList {
     access: boolean;
   };
 }
+
+export interface ITask {
+  tasks: [
+    {
+      id: string;
+      name: string;
+    }
+  ];
+}
+
+export interface IFolder {
+  lists: [
+    {
+      id: string;
+    }
+  ];
+}
