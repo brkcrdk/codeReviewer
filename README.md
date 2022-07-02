@@ -23,7 +23,15 @@
 * [x] <s>Eklenince, tarih aralığına göre liste adını oluştur.</s>
 * [x] <s>O listeye oluşturulan task listesine göre taskları oluştur.</s>
 * [x] <s>O taska kişileri assign et.</s>
-* [ ] GELİŞTİRME: Geçen haftanın listesini çekip; onunla karşılaştırma yaparak listeyi geçen haftadan farklı yapmayı deneyebiliiriz
-* [x] <s>GELİŞTİRME: Readme bölümünün, ingilizce olarak güncellenmeli.</s>
-* [ ] GELİŞTİRME: Testlerin yazılması.
+* [x] <s> Readme bölümünün, ingilizce olarak güncellenmeli.</s>
+* [ ] Geçen haftanın listesini çekip; onunla karşılaştırma yaparak listeyi geçen haftadan farklı yapmayı deneyebiliiriz.
+* [ ] Yeni akışı uygulanacak:
+  İşlem Sırası:
+  * Son task listesini al
+  * Yeni bir liste oluştur
+  * Bu listede çakışma var mı onu kontrol et
+  * Eğer taskta çkışma varsa yeni bir shuffled list oluştur. Bunu çakışmayan bir liste olana kadar tekrarla.
+  * Eğer tasklarda çakışma yoksa, listeleri oluştur.
+* [ ] Akış yenilendiği için gereksiz olacak, prompt functionlarını ve onunla alakalı utilsleri temizle
+ 
 

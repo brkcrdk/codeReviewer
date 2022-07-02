@@ -67,5 +67,3 @@ async function test() {
 }
 
 test();
-
-// İşlem sırası:
