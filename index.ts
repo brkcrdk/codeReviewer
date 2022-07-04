@@ -40,8 +40,7 @@ const createTaskList = async (list: string[]) => {
         await createTask({
           listId,
           taskName: `${creator} -> ${reviewer}`,
-          assignees: [creatorId, reviewerId],
-          notify_all: false
+          assignees: [creatorId, reviewerId]
         });
         console.log(`${creator} -> ${reviewer} ikilisi için task oluşturuldu.`);
       }
