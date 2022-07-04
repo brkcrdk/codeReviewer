@@ -1,25 +1,22 @@
 import memberList from './memberList';
 
 const shuffledList = (): {
-  shuffeledMembers: string[];
-  shuffleText: string;
+  matchList: string[];
 } => {
   if (memberList) {
     const shuffeledMembers = memberList.sort(() => 0.5 - Math.random());
 
-    let shuffleText = '';
-
-    shuffeledMembers.forEach((member: string, index) => {
+    const matchList = shuffeledMembers.map((member: string, index) => {
       if (shuffeledMembers[index + 1]) {
-        shuffleText += `${member} -> ${shuffeledMembers[index + 1]}\n`;
+        return `${member} -> ${shuffeledMembers[index + 1]}`;
       } else {
-        shuffleText += `${member} -> ${shuffeledMembers[0]}`;
+        return `${member} -> ${shuffeledMembers[0]}`;
       }
     });
 
-    return { shuffeledMembers, shuffleText };
+    return { matchList };
   } else {
-    return { shuffeledMembers: [], shuffleText: '' };
+    return { matchList: [] };
   }
 };
 
