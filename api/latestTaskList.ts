@@ -16,9 +16,7 @@ const taskList = async () => {
     url: `/list/${latestListId}/task`
   });
 
-  const taskNames = tasks.map((task) => ({ id: task.id, name: task.name }));
-  console.log(taskNames);
-  // return (await request).tasks;
+  return tasks.map((task) => task.name);
 };
 
 export default taskList;
