@@ -27,5 +27,3 @@
 * [x] <s>Geçen haftanın listesini çekip; onunla karşılaştırma yaparak listeyi geçen haftadan farklı yapmayı deneyebiliiriz.</s>
 * [x] <s>Yeni akışı uygulanacak.</s>
 * [x] <s>Akış yenilendiği için gereksiz olacak, prompt functionlarını ve onunla alakalı utilsleri temizle</s>
- 
-
