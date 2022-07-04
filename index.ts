@@ -67,35 +67,56 @@ import { memberData, createList, createTask, latestTaskList } from 'api';
  * - Eğer karşılaştırdığın listede çakışma varsa yeniden liste oluştur ve kendini çağır
  * - Eğer çakışma yoksa, o liste ile taskları oluştur ve functiondan çık.
  */
-const countDown = async function f(list: string[]) {
-  console.log(list);
-
+const countDown = async (list: string[]) => {
   const reqTest = await latestTaskList();
 
-  const { matchList } = shuffeledList();
-  if (!reqTest.includes('Burak Çardak -> Erhan Akyel')) {
-    f(matchList);
+  const hasConflict = reqTest.some((val) => list.includes(val));
+
+  if (hasConflict) {
+    const { matchList } = shuffeledList();
+    countDown(matchList);
+    console.log('eşleşme yapılıyor..');
   } else {
-    console.log({ matchList, reqTest });
-    return console.log('aranan bulundu');
+    console.log('aranan eşleşme bulundu ve liste oluşturulmaya başladı');
+    const listName = listNameBuilder();
+    const { id: listId } = await createList({ listName });
+    console.log(`liste ${listName} adıyla oluşturuldu`);
+
+    console.log('Takım üyelerinin bilgileri toplanıyor.');
+    const teamList = await memberData();
+    console.log('Takım üyelerinin bilgileri toplandı.');
+
+    console.log('Tasklar oluşturulmaya başlandı.');
+
+    for (let i = 0; i < list.length; i++) {
+      /**
+       * creator => Merge request talebini oluşturan kişi
+       * reviewer => Merge request talebini inceleyecek kişi
+       */
+      const [creator, reviewer] = list[i].split('->').map((val) => val.trim());
+
+      const creatorId = teamList.find(
+        (member) => member.username === creator
+      )?.id;
+      const reviewerId = teamList.find(
+        (member) => member.username === reviewer
+      )?.id;
+
+      if (creatorId && reviewerId) {
+        await createTask({
+          listId,
+          taskName: `${creator} -> ${reviewer}`,
+          assignees: [creatorId, reviewerId],
+          notify_all: false
+        });
+        console.log(`${creator} -> ${reviewer} ikilisi için task oluşturuldu.`);
+      }
+    }
+
+    console.log('Tasklar başarıyla oluşturuldu.');
+    return;
   }
 };
 
 const { matchList } = shuffeledList();
 countDown(matchList);
-
-// async function test() {
-//   const testString = '';
-
-//   if (testString === '3') {
-//     return console.log('tuttu');
-//   } else {
-//     test();
-//   }
-//   // const reqTest = await latestTaskList();
-//   // console.log({ reqTest });
-// }
-
-// // const { matchList } = shuffeledList();
-// // console.log({ matchList });
-// test();
